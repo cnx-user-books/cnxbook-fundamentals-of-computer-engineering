@@ -1,0 +1,230 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+<title>DesignWorks Digital Simulation Software Tutorial</title>
+<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9a2d64a6-7e56-4f99-b2fd-a9ce5e88c666</md:uuid>
+</metadata>
+<content>
+<section id="id14728777">
+<title>Introduction:</title>
+<para id="id14728785">DesignWorks is a logic schematic creation and
+simulation program. It comes with many circuit symbols and models
+that allow you to create logical circuits. We will be using
+DesignWorks Professional by Capilano Computing.</para>
+<para id="id14728793">For another tutorial, see the Capilano
+website: http://www.capilano.com/DWLiteManual/5min.html</para>
+</section>
+<section id="id14728799"><title>Anatomy of a Circuit (some terminology that
+may be useful as you read through this doc)</title>
+
+<figure id="id14728820"><title> Circuit Anatomy </title>
+<media id="idp6813024" alt=""><image src="../../media/Graphic1.png" mime-type="image/png"/></media>
+
+<caption> This figure shows circuit terminology that will be used throughout this tutorial. </caption></figure>
+
+</section>
+<section id="idcl"> 
+<title>Component Libraries to Use:</title>
+<para id="iddwcl">
+DesignWorks comes with
+libraries of logic components, such as NAND gates, Multiplexors,
+and Adders. Because you will be using DesignWorks to understand
+basic logic design, you will not need to use the component
+libraries that model real components you can buy and use on a
+circuit board. Instead, you will be using the components in the
+following four libraries : Pseudo Devices.clf, Simulation I0.clf,
+Simulation Gates.clf, Simulation Logic.clf.</para>
+</section>
+<section id="id14728876">
+<title>DesignWorks Do's and Don'ts:</title>
+<list list-type="bulleted" id="id14728883">
+<item><emphasis>Do save your work often.</emphasis></item>
+<item>Do save intermediate results. If you have a nice working
+section of your circuit, save a copy so that you can get back to it
+in case anything goes wrong as you add elements. DW is a powerful
+piece of software, but does occasionally get into a wiring
+snit.</item>
+<item><emphasis>Do not drag large sections of wired components</emphasis> to move them.
+Dragging often causes wires to reattach themselves in undesirable
+ways to selected components or things they are dragged over.
+Instead what you want to move, cut from the current location, and
+paste in the new location.</item>
+<item>If your circuit is behaving strangely, <emphasis> use the ? tool </emphasis> to
+debug your circuit. Starting with the location of the strange
+value, probe connected wiring working from outputs back to inputs.
+Test pins and the wires that appear to be connected to them. When
+testing pins, the ? tool must be touching the very tip of the pin,
+otherwise you will see a Z output. If you find a loose connection,
+use the zap tool (see Deleting Wiring below) to delete and reattach
+the connection.</item>
+<item>Do <emphasis>test wiring right after it is placed. </emphasis> (See Testing Wiring
+below.)</item>
+<item>Do learn what all the simulation values mean. (See Simulation
+values: (0, 1, X, Z, or C) below.)</item>
+<item>Do <emphasis>use named signals </emphasis> to make connections rather than long
+stretches of wiring. When using named signals, spaces are relevant,
+so be very careful that the name matches exactly.</item>
+</list>
+</section>
+<section id="id14729086">
+<title>DesignWorks Reference Notes:</title>
+<list list-type="bulleted" id="id14729093"><item><emphasis>Using Component Libraries: </emphasis> On the right of the DesignWorks
+display, you will see a parts palette. You can select libraries of
+components to choose from by selecting the name of the library you
+want to use from the library selection drop-down list. You can also
+select “ALL LIBRARIES” to be able to choose from all loaded
+component libraries. You can load and unload new libraries from the
+“File/Libraries” menu.</item>
+<item> <emphasis> Placing and moving components:</emphasis> Double-click on the component
+in the parts palette to the right of the screen. Your cursor will
+change into an image of the part. To get out of parts placing mode,
+tap the space bar. You can move devices around, by clicking on them
+and dragging them to a new position. In order to move a switch type
+device, you must select it while holding down the SHIFT key, and
+then move it. You can also move components by selecting them, and
+then using the arrow keys to move them in discrete intervals. When
+moving groups of components, only move in discrete steps or cut and
+paste.</item>
+<item><emphasis>Orienting components: </emphasis> To orient components so that the output
+and input pins face the direction you want, use the arrow keys
+while the component is selected, and before you place it. The arrow
+keys will flip both the vertical and horizontal orientation of the
+component.</item>
+<item><emphasis> Wiring: </emphasis> To create connections, position the pointer near the
+endpoint of a pin or wire and drag away toward the other endpoint.
+If you hold down the control key it will change the type of routing
+to route down and over, rather than over and down. Using the Alt
+key while drawing a wire, will create a three segment route. CTL
+and ALT can be used together to combine the effects. 
+<list list-type="bulleted" id="whydoIneedthis">
+<item> <emphasis> Wiring by Signal Name: </emphasis> You can connect a named
+signal to a pin by selecting the Text Cursor (letter A in the tool
+palette), and clicking the pencil at the <emphasis> end </emphasis> of the pin. (Clicking
+in the middle of the pin creates a pin number). With the end of the
+pin selected, place a label that matches the signal name you want
+to connect. Note that a physical line will not be drawn in this
+case. When using named signals, spaces in front of, within, and
+after the name are relevant, so be very careful that the names
+match exactly.</item>
+<item>
+<emphasis>Testing Wiring: </emphasis> Once the connection is made,
+test the connection by clicking on the signal route and noting the
+yellow highlighted path. The highlighted portion should extend all
+the way across gate pins (in other words be sure that the pins on
+the gate highlight yellow rather than remaining black.) Always test
+the connections this way to make sure the exact connection you
+intended was made. Signals can appear to be connected, but not
+really be making the connection. Sometimes, even a solid yellow
+line will turn out not to be connected to the pin. If this happens
+you may see X values where you expect 0 or 1. Use the ? tool to
+check that the pin and wire have the same value.</item>
+<item><emphasis> Adjusting Wiring: </emphasis> You can adjust line
+segments within the connection path by clicking and dragging
+anywhere but on a corner.</item>
+<item><emphasis>Deleting wire segments or entire wire
+routes: </emphasis>If you want to delete only a portion of a signal line, use
+the “zap” tool. It looks like a lightning bolt. When the zap tool
+is selected, it will remove a line segment that it touches, up to
+the nearest intersection, device pin, or segment join point.
+Selecting a signal and then using the delete key causes the entire
+signal route to be removed.</item>
+</list></item>
+<item><emphasis> Naming things:</emphasis> You can use the text cursor (the letter “A” on
+the tool palette at the top of the display) to name components,
+signals, and pins on your circuit. Select the “A” and then your
+mouse turns into a pencil. Move the pencil to the item you want to
+name and select the item. Devices have automatically generated
+names that you can modify by selecting them. Signals will bring up
+a small box for naming them when you select them while using the
+“A”. The auto-generated name will start with SIG. To check that the
+thing you have named is really what you intended, select the object
+(signal or device). The name will highlight along with the selected
+object if it is correctly named. Signal and device names appear in
+pink, whereas expository text will appear black.</item>
+<item> <emphasis>Simulation values:(0, 1, X, Z, or C)</emphasis> During simulation, a
+value of “X” denotes a state which cannot be determined. A value of
+“Z” denotes a high-impedance state. To turn simulation on, click on
+the “running man” icon in the tool bar, (he is to the right of the
+“speed” slider.) If you click on a switch to set a value, and
+simulation is not turned on, a pop-up box will appear asking if you
+want to start simulation. Say yes, of course. A value of “C”
+denotes “Conflict” and means that DesignWorks cannot determine the
+proper value for a signal because it has been connected to two
+sources that are independent of each other; for instance connecting
+power to ground. This error often occurs when you have named a
+signal in one circuit the same as a signal in another circuit in
+the same file. DesignWorks interprets that to mean that the two
+signal wires are connected to each other. If that isn't what you
+intended, change the name of one of them.</item>
+<item><emphasis>Showing all values:</emphasis> DesignWorks can display all the signal values in the circuit with small blue numbers. To turn this off, from the Simulation Menu, select "Show Values".</item>
+<item><emphasis>Printing:</emphasis> You can print directly from DesignWorks using the
+File-&gt;Print menu. In order to make sure that the design prints
+on a single page, you can use Drawing-&gt;Sheet Size Wizard.One of
+the panes in the wizard will allow you to select Single Printed
+Page. You can also save an image file of your circuit using
+File-&gt;Export-&gt;Windows Meta File.</item>
+</list>
+</section>
+<section id="id14731790">
+<title>Tutorial:</title>
+<para id="id14731796">We will construct a four-input multiplexor
+and test its operation using switches and a hex keyboard. The final
+version is shown below and it corresponds to the illustration of a
+multiplexor in the text, on p. 61.</para>
+<figure id="element-524"><title> Four-input multiplexor </title>
+<media id="idp9347920" alt=""><image src="../../media/tutorial_mux.png" mime-type="image/png"/></media>
+<caption> Example circuit to construct using Design Works for practice placing elements and wiring them. </caption></figure><list list-type="enumerated" id="id14731804">
+<item>Start DesignWorks Professional from the Program menu and
+select “new”, then “design”, then “Generic Simulation” from the
+file menu.</item>
+<item>To the right, you will see a parts palette. From the library
+selection drop-down list, choose “Simulation Gates”.</item>
+<item>Double-click on the 3 input AND gate (AND-3). Your cursor
+will change into an AND gate. Place 4 of them vertically on the
+paper by left clicking when the device is where you want it. To get
+out of “AND-3” mode, tap the space bar. You can move devices
+around, by clicking on them and dragging them to a new position.
+Pin 1 of all these gates will be the input lines, pin 2 will be the
+high order select line, and pin 3 will be the low order select line
+(or bit).</item>
+<item>Attach inverters (“NOT”) to the appropriate input pins of
+each AND gate. Counting from top to bottom, place inverters on pins
+2 and 3 of the first AND, pin 2 of the second AND, and pin 3 of the
+third AND.</item>
+<item>Now select the “OR-4” device and place it to the right of all
+the AND-3's.</item>
+<item>Wire each of the outputs from the ANDs to the OR-4 circuit.
+(See Wiring in the reference section.)</item>
+<item>Connect the signal lines going into pin 2 of each AND gate.
+The connection should be such that the signal line goes through any
+applicable inverter, after the connection has been made. Similarly,
+connect all the signal lines going into pin 3 of each AND gate.
+These will be the Select lines.</item>
+<item>From the library selection drop-down list, choose “Simulation
+I/O”. Double click on the “Binary Probe” option and hook it up to
+the output of your multiplexor. To orient the switch signal so that
+the switch connects to the output, use the arrow keys while placing
+the component. Notice that the binary probe shows an “X” in its
+display. Since the inputs to the circuit have not yet been defined,
+the output is “undetermined”.</item>
+<item>Select the “Binary Switch” component and place two of them on
+your drawing. Hook one of them to each of the combined input signal
+lines into the multiplexor. Those will be the “selector” lines.
+Select 4 more binary switches and hook them up to the multiplexor
+input lines.</item>
+<item>Naming components of your circuit will help you to remember
+their function. Select the writing tool from the tool palette and
+name the devices and signals. Name the input signals, A, B, C, and
+D, and the AND gates corresponding to the selection of each of
+those signals. Name your select lines and output.</item>
+<item>Turn on one of the input lines at a time, and use the
+selectors to select that value.</item>
+<item>Having to turn each binary switch on and off individually can
+be laborious. Replace the 4 input binary switches with a single HEX
+Keyboard. What values of the HEX are convenient for testing the
+circuit? Use binary probes on the outputs of the hex if you get
+tired of converting in your head to determine which signals are
+high.</item>
+</list>
+
+</section>
+</content>
+</document>
